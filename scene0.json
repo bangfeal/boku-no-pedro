@@ -1,0 +1,50 @@
+{
+  "metadata": {
+      "characters": [
+          "sanchez",
+          "rajoy"
+      ],
+      "decidingFactor": "simpleDecision",
+      "name": "scene0",
+      "nextScenes": [
+          "scene1",
+          "scene2"
+      ]
+  },
+  "dialog": {
+      "text": [
+          [
+              "sanchez",
+              "sanchez_standing",
+              null,
+              "Viva el rey viva el orden y la ley"
+          ],
+          [
+              "rajoy",
+              "rajoy_hanging",
+              0,
+              "Viva cristo"
+          ]
+      ],
+      "choices": [
+           {
+                "contents": [
+                    "Yes",
+                    "No"
+                ],
+                "effect0": [
+                    "relationshipPointsUp",
+                    "rajoy",
+                    30
+                ],
+                "effect1": [
+                    "relationshipPointsDown",
+                    "rajoy",
+                    20
+                ]
+            }
+
+        
+      ]
+  }
+}
