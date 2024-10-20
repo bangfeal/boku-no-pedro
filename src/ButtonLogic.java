@@ -11,11 +11,7 @@ public class ButtonLogic {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.getContentPane().removeAll();
-                frame.add(theFunny());
-                frame.revalidate();
-                frame.repaint();
-                // TODO - METER LOGICA PARA EMPEZAR
+                GameGUI inGame = new GameGUI(frame);
             }
         });
         playButton.setFont(VisualInfo.buttonFont);
@@ -39,21 +35,6 @@ public class ButtonLogic {
         quitButton.setPreferredSize(new Dimension(180,80));
 
         return quitButton;
-    }
-
-    private static JPanel theFunny() {
-        JPanel imagePanel = new JPanel();
-        imagePanel.setLayout(new BorderLayout());
-
-        ImageIcon imageIcon = new ImageIcon("images/sprites/PedroSanchez2.png");
-        JLabel imageLabel = new JLabel(imageIcon);
-        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
-        imagePanel.add(imageLabel, BorderLayout.CENTER);
-
-        imagePanel.setPreferredSize(new Dimension(imageIcon.getIconWidth(), imageIcon.getIconHeight()));
-
-        return imagePanel;
     }
 }
 
