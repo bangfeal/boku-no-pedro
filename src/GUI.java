@@ -4,6 +4,11 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
+/**
+ * MAIN MENU GUI WORKED ON BY @JEBUS. AFTER CLICKING PLAY ButtonLogic.Java calls in GameGUI.java WHICH HANDLES THE
+ * MAIN PLAYING AREA FOR THE PLAYER (AND IT INTERECATS WITH THE REST OF THE CLASSES)
+ */
+
 public class GUI {
     protected JFrame frame;
     private JLabel bottomCredits;
@@ -43,7 +48,7 @@ public class GUI {
     }
 
     // Create a custom panel to draw the background image
-    private JPanel createBackgroundPanel() {
+    protected JPanel createBackgroundPanel() {
         return new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
