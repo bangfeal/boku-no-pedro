@@ -1,6 +1,13 @@
 import javax.swing.*;
 import java.io.File;
 
+/**
+ * Class that handles the creation of the play and quit buttons
+ * on the main screen, coded by @Jebus. Choice buttons are in
+ * ChoiceButtonLogic.java because they are too different to implement them here
+ */
+
+
 public class ButtonLogic_D {
 
     public static JButton playButton(JFrame frame) {
