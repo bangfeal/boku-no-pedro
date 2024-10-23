@@ -3,12 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Metadata {
-    private String name, decidingFactor;
+    private String name, decidingFactor, background;
     private List<File> nextScenes = new ArrayList<>();
 
-    public Metadata(String nombre, String decidingFactor, List<File> nextScenes) {
+    public Metadata(String nombre, String decidingFactor, String background, List<File> nextScenes) {
         this.name = nombre;
         this.decidingFactor = decidingFactor;
+        this.background = background;
         this.nextScenes = nextScenes;
     }
 
@@ -22,5 +23,9 @@ public class Metadata {
 
     public List<File> getNextScenes() {
         return nextScenes;
+    }
+
+    public String getBackground() {
+        return background;
     }
 }

@@ -16,4 +16,5 @@ public class Dialog {
 
     public String getText() { return text; }
     public String getCharacter() { return character; }
+    public String getCurrentSprite() { return currentSprite; }
 }

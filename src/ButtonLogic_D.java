@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ButtonLogic {
+public class ButtonLogic_D {
 
     public static JButton playButton(JFrame frame) {
         JButton playButton = new JButton("Jugar");
@@ -11,11 +11,13 @@ public class ButtonLogic {
         playButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /*
                 frame.getContentPane().removeAll();
                 frame.add(theFunny());
                 frame.revalidate();
                 frame.repaint();
                 // TODO - METER LOGICA PARA EMPEZAR
+                 */
             }
         });
         playButton.setFont(VisualInfo.buttonFont);

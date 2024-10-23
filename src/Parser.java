@@ -39,6 +39,7 @@ public class Parser {
 
         return new Metadata((String) metadata.get("name"),
                 (String) metadata.get("decidingFactor"),
+                (String) metadata.get("background"),
                 nextScenes);
     }
 

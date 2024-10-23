@@ -4,6 +4,7 @@
           "sanchez",
           "rajoy"
       ],
+      "background": "bg1.jpg",
       "decidingFactor": "simpleDecision",
       "name": "scene0",
       "nextScenes": [
@@ -14,10 +15,10 @@
   "dialog": {
       "text": [
           [
-              "sanchez",
-              "sanchez_standing",
+              "Sanchez",
+              "sanchez_standing.png",
               null,
-              "Viva el rey viva el orden y la ley"
+              "Por siete votos... tienes el culo roto!"
           ],
           [
               "rajoy",
