@@ -1,15 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 
 /**
- * GUI Developed by @Jebus.
- * This class handles the main GUI setup and layout for the game.
+ * MAIN MENU GUI WORKED ON BY @JEBUS. AFTER CLICKING PLAY ButtonLogic.Java calls in GameGUI.java WHICH HANDLES THE
+ * MAIN PLAYING AREA FOR THE PLAYER (AND IT INTERECATS WITH THE REST OF THE CLASSES)
  */
+
 public class GUI {
-    private JFrame frame;
-    private JLabel mainTitle;
+    protected JFrame frame;
     private JLabel bottomCredits;
+    protected Image backgroundImage;
 
     public GUI() {
         initializeFrame();
@@ -18,35 +21,62 @@ public class GUI {
         frame.setVisible(true);
     }
 
-    public void initializeFrame() {
+    private void initializeFrame() {
         frame = new JFrame("Boku No Pedro!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1920, 1080);
+        frame.setResizable(false);          //Temporary until I figure out how to make shit work
         frame.setLayout(new BorderLayout());
 
-        // Set app icon and background color
+        // Set app icon
         ImageIcon image = new ImageIcon("images/appIcon.png");
         frame.setIconImage(image.getImage());
-        frame.getContentPane().setBackground(VisualInfo.background);
     }
 
     private void createComponents() {
-        mainTitle = createLabel("Boku no Pedro!", VisualInfo.menuFont, VisualInfo.menuFontColor);
         bottomCredits = new JLabel("Creditos: Disenado y programado por Felix Arcaya y Roman Palchevskiy");
+        bottomCredits.setHorizontalAlignment(SwingConstants.CENTER);
+        bottomCredits.setForeground(Color.WHITE);
+
+        // Load the background image
+        try {
+            File menuImg = new File("src/images/MainMenu.png");
+            backgroundImage = ImageIO.read(menuImg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private JLabel createLabel(String text, Font font, Color color) {
-        JLabel label = new JLabel(text);
-        label.setFont(font);
-        label.setForeground(color);
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        return label;
+    // Create a custom panel to draw the background image
+    protected JPanel createBackgroundPanel() {
+        return new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (backgroundImage != null) {
+                    g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+                }
+            }
+        };
     }
 
-    private JPanel createButtonPanel() {
+    private void layoutComponents() {
+        JPanel backgroundPanel = createBackgroundPanel();
+        backgroundPanel.setLayout(new BorderLayout());
+
+        // Add components on top of the background panel
+        backgroundPanel.add(bottomCredits, BorderLayout.SOUTH);
+        backgroundPanel.add(createButtonPanel(), BorderLayout.CENTER);
+
+        frame.setContentPane(backgroundPanel);
+        frame.revalidate();
+        frame.repaint();
+    }
+
+    protected JPanel createButtonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        buttonPanel.setBackground(VisualInfo.background);
+        buttonPanel.setOpaque(false); // Make the button panel transparent to show the background
         buttonPanel.setPreferredSize(new Dimension(250, 720));
 
         JButton playButton = ButtonLogic_D.playButton(frame);
@@ -58,30 +88,9 @@ public class GUI {
         buttonPanel.add(quitButton);
         buttonPanel.add(Box.createVerticalGlue());
 
+        playButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         return buttonPanel;
     }
-
-    private JPanel createTitlePanel() {
-        // Create and resize the game logo
-        ImageIcon logoIcon = new ImageIcon("images/GameLogoTOP.png");
-        Image logoImage = logoIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-        JLabel logoLabel = new JLabel(new ImageIcon(logoImage));
-        logoLabel.setBorder(BorderFactory.createEmptyBorder(10, 1, 10, 30));
-
-        // Create a panel for the logo and title
-        JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        titlePanel.setBackground(VisualInfo.background);
-        titlePanel.add(logoLabel);
-        titlePanel.add(mainTitle);
-
-        return titlePanel;
-    }
-
-    private void layoutComponents() {
-        frame.add(createTitlePanel(), BorderLayout.NORTH);
-        frame.add(bottomCredits, BorderLayout.SOUTH);
-        frame.add(createButtonPanel(), BorderLayout.EAST);
-    }
-
-    public JFrame getFrame() { return frame; }
 }
