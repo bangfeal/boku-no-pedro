@@ -1,51 +1,41 @@
 {
-  "metadata": {
-      "characters": [
-          "sanchez",
-          "rajoy"
-      ],
-      "background": "bg1.jpg",
-      "decidingFactor": "simpleDecision",
-      "name": "scene0",
-      "nextScenes": [
-          "scene1",
-          "scene2"
-      ]
-  },
+  "background": "bg1.jpg",
   "dialog": {
       "text": [
           [
-              "Sanchez",
-              "sanchez_standing.png",
-              null,
-              "Por siete votos... tienes el culo roto!"
+            "Sanchez",
+            "sanchez_standing.png",
+            null,
+            "Por siete votos... tienes el culo roto!"
           ],
           [
-              "rajoy",
-              "rajoy_hanging",
-              0,
-              "Viva cristo"
+            "Sanchez",
+            "sanchez_standing.png",
+            null,
+            "Esa nenita ta enterita"
+          ],
+          [
+            "Sanchez",
+            "sanchez_standing.png",
+            null,
+            "Y tiene tremendo"
+          ],
+          [
+            "Epstein",
+            "bg2.jpg",
+            null,
+            "Jeffrey Epstein Didnt Kill Himself"
           ]
       ],
-      "choices": [
-           {
-                "contents": [
-                    "Yes",
-                    "No"
-                ],
-                "effect0": [
-                    "relationshipPointsUp",
-                    "rajoy",
-                    30
-                ],
-                "effect1": [
-                    "relationshipPointsDown",
-                    "rajoy",
-                    20
-                ]
-            }
-
-        
-      ]
+    "choice": [
+      {
+        "text": "Epstein killed himself",
+        "scene": "epstein_killed.json"
+      },
+      {
+        "text": "Epstein did not kill himself",
+        "scene": "act1_scene3.json"
+      }
+    ]
   }
 }

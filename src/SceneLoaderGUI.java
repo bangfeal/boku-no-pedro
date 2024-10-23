@@ -43,7 +43,7 @@ public class SceneLoaderGUI extends JPanel {
 
         if (!scene.isOver()) {
             try {
-                graphics.drawImage(ImageIO.read(new File(scene.getMetadata().getBackground())), 0, 0, width, height, this);
+                graphics.drawImage(ImageIO.read(scene.getBackground()), 0, 0, width, height, this);
                 graphics.drawImage(ImageIO.read(new File(scene.getCurrentDialog().getCurrentSprite())), 550, 100, 850, 1500, this);
 
                 graphics.drawImage(ImageIO.read(new File("text_box.png")), 450, 700, this);

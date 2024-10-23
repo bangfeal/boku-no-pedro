@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class ButtonLogic_D {
 
@@ -18,6 +19,10 @@ public class ButtonLogic_D {
                 frame.repaint();
                 // TODO - METER LOGICA PARA EMPEZAR
                  */
+
+                SceneLoaderGUI gui = new SceneLoaderGUI(frame, new Scene(new File("scene0.json")));
+                frame.add(gui);
+                frame.setVisible(true);
             }
         });
         playButton.setFont(VisualInfo.buttonFont);
@@ -41,21 +46,6 @@ public class ButtonLogic_D {
         quitButton.setPreferredSize(new Dimension(180,80));
 
         return quitButton;
-    }
-
-    private static JPanel theFunny() {
-        JPanel imagePanel = new JPanel();
-        imagePanel.setLayout(new BorderLayout());
-
-        ImageIcon imageIcon = new ImageIcon("images/sprites/PedroSanchez2.png");
-        JLabel imageLabel = new JLabel(imageIcon);
-        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
-        imagePanel.add(imageLabel, BorderLayout.CENTER);
-
-        imagePanel.setPreferredSize(new Dimension(imageIcon.getIconWidth(), imageIcon.getIconHeight()));
-
-        return imagePanel;
     }
 }
 

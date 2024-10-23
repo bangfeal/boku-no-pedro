@@ -18,62 +18,48 @@ public class Parser {
             JSONParser parser = new JSONParser();
             mainObject = (JSONObject) parser.parse(reader);
 
-        } catch (IOException | ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    Metadata extractMetadata() {                                                    // handles all JSON
-        JSONObject metadata = (JSONObject) mainObject.get("metadata");              // objects instead of passing a
-        List<File> nextScenes = new ArrayList<>();                                  // HashMap
-
-        try {
-            JSONArray nextScenesArray = (JSONArray) metadata.get("nextScenes");
-            for (Object nextScene : nextScenesArray) {
-                nextScenes.add((new File((String) nextScene)));
-            }
-
-        } catch (ClassCastException | NullPointerException  e) {
-            e.printStackTrace();
-        }
-
-        return new Metadata((String) metadata.get("name"),
-                (String) metadata.get("decidingFactor"),
-                (String) metadata.get("background"),
-                nextScenes);
+    File extractBackground() {
+        return new File(mainObject.get("background").toString());
     }
 
     List<Dialog> extractDialog() {
         List<Dialog> dialogs = new ArrayList<>();
         JSONObject dialogObject = (JSONObject) mainObject.get("dialog");
         JSONArray text = (JSONArray) dialogObject.get("text");
+        JSONArray choices = (JSONArray) dialogObject.get("choice");
 
         // using integers instead of constants or enum because these
         // seem to add more complexity and verbosity
         // 0 = CHARACTER | 1 = SPRITE | 2 = CHOICE | 3 = TEXT
 
-        for (int i = 0; i < text.toArray().length; i++) {
-            JSONArray innerArray = (JSONArray) text.get(i);
+        JSONArray innerArray;
 
-            if (innerArray.get(2) == null) {
-                dialogs.add(new Dialog((String) innerArray.get(0),
-                                       (String) innerArray.get(1),
-                                       (String) innerArray.get(3)));
-            } else {
-                JSONArray choices = (JSONArray) dialogObject.get("choices");
-                JSONObject choiceObject = (JSONObject) choices.get((((Long) innerArray.get(2)).intValue()));
+        for (int i = 0; i < text.toArray().length - 1; i++) {
+            innerArray = (JSONArray) text.get(i);
 
-                List<Object> contents = List.of(choiceObject.get("contents"));
-                List<Object> effect0 = List.of(choiceObject.get("effect0"));
-                List<Object> effect1 = List.of(choiceObject.get("effect1"));
-
-                dialogs.add(new ChoiceDialog((String) innerArray.get(0),
-                                             (String) innerArray.get(1),
-                                             (String) innerArray.get(3),
-                                             new Choice(contents, effect0, effect1)));
-            }
+            dialogs.add(new Dialog((String) innerArray.get(0),
+                    (String) innerArray.get(1),
+                    (String) innerArray.get(3)
+                    ));
         }
 
+        innerArray = (JSONArray) text.get(text.toArray().length - 1);
+
+        try {
+            dialogs.add(new ChoiceDialog((String) innerArray.get(0),
+                    (String) innerArray.get(1),
+                    (String) innerArray.get(3),
+                    new Choice((HashMap) choices.get(0)),
+                    new Choice((HashMap) choices.get(1)
+                    )));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return dialogs;
     }
 }

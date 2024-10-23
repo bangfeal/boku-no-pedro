@@ -1,6 +1,5 @@
 public class Dialog {
-    private String character; // Should change to a Character object once the
-                              // GUI passing is complete
+    private String character;
     private String text,
                    currentSprite;
 
