@@ -65,5 +65,5 @@ muestra una decisión por pantalla y envía a una escena u otra.
 
 
 ## Estructura (actual) del proyecto
-![DIAGRAMA UML] https://github.com/bangfeal/boku-no-pedro/blob/main/UML_Diagram.png
+![DIAGRAMA UML](https://github.com/bangfeal/boku-no-pedro/blob/main/UML_Diagram.png)
 
