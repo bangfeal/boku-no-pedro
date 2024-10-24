@@ -1,40 +1,40 @@
 {
-  "background": "bg1.jpg",
+  "background": "src/images/ChoiceBackground.png",
   "dialog": {
       "text": [
           [
             "Sanchez",
             "sanchez_standing.png",
             null,
-            "Por siete votos... tienes el culo roto!"
+            "TEXTO [1]"
           ],
           [
             "Sanchez",
             "src/images/sprites/PedroSanchez.png",
             null,
-            "Esa nenita ta enterita"
+            "TEXTO  [2]"
           ],
           [
             "Sanchez",
             "sanchez_standing.png",
             null,
-            "Y tiene tremendo"
+            "TEXTO  [3]"
           ],
           [
             "Epstein",
-            "src/images/ChoiceBackground.png",
+            "src/images/sprites/PedroSanchez2.png",
             null,
             "Jeffrey Epstein Didnt Kill Himself"
           ]
       ],
     "choice": [
       {
-        "text": "Epstein killed himself",
-        "scene": "epstein_killed.json"
+        "text": "CHOICE SCENE 2",
+        "scene": "Act1_scene2.json"
       },
       {
-        "text": "Epstein did not kill himself",
-        "scene": "act1_scene3.json"
+        "text": "CHOICE SCENE 3",
+        "scene": "Act1_scene3.json"
       }
     ]
   }
