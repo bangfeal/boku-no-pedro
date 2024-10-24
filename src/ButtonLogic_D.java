@@ -6,44 +6,32 @@ import java.io.File;
  * on the main screen, coded by @Jebus. Choice buttons are in
  * ChoiceButtonLogic.java because they are too different to implement them here
  */
+public abstract class ButtonLogic_D extends AbstractGameButton {
 
+    private static JFrame frame;
 
-public class ButtonLogic_D {
+    protected ButtonLogic_D(String text, JFrame frame) {
+        super(text);
+        ButtonLogic_D.frame = frame; // Store the frame for later use
+    }
 
     public static JButton playButton(JFrame frame) {
-        return new PlayButton(frame);
+        return new AbstractGameButton("Jugar") {
+            @Override
+            protected void onClick() {
+                SceneLoaderGUI gameGui = new SceneLoaderGUI(frame, new Scene(new File("Act1_scene1.json"))); // Loads JSON act 1 scene 1
+                frame.add(gameGui);
+                frame.setVisible(true);
+            }
+        };
     }
 
     public static JButton quitButton() {
-        return new QuitButton();
-    }
-
-    // Concrete implementation for the Play button
-    private static class PlayButton extends AbstractGameButton {
-        private JFrame frame;
-
-        public PlayButton(JFrame frame) {
-            super("Jugar");
-            this.frame = frame;
-        }
-
-        @Override
-        protected void onClick() {
-            SceneLoaderGUI gameGui = new SceneLoaderGUI(frame, new Scene(new File("scene0.json")));
-            frame.add(gameGui);
-            frame.setVisible(true);
-        }
-    }
-
-    // Concrete implementation for the Quit button
-    private static class QuitButton extends AbstractGameButton {
-        public QuitButton() {
-            super("Salir");
-        }
-
-        @Override
-        protected void onClick() {
-            System.exit(0);
-        }
+        return new AbstractGameButton("Salir") {
+            @Override
+            protected void onClick() {
+                System.exit(0);
+            }
+        };
     }
 }
