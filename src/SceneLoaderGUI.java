@@ -6,6 +6,10 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Represents the GUI for loading and displaying a scene, including handling background images,
+ * dialogs, and choices. It listens for mouse clicks to advance through the scene.
+ */
 public class SceneLoaderGUI extends JPanel {
     private JFrame frame;
     private Scene scene;
@@ -16,6 +20,12 @@ public class SceneLoaderGUI extends JPanel {
     private final int height = width * 9 / 16;
     private boolean clicked = false;
 
+    /**
+     * Constructs a {@code SceneLoaderGUI} to load and display the given scene.
+     *
+     * @param frame the {@link JFrame} to display the scene in
+     * @param scene the {@link Scene} to be displayed
+     */
     public SceneLoaderGUI(JFrame frame, Scene scene) {
         this.frame = frame;
         this.scene = scene;
@@ -33,6 +43,9 @@ public class SceneLoaderGUI extends JPanel {
         });
     }
 
+    /**
+     * Initializes the GUI by setting up the frame and choice panel.
+     */
     private void initializeGUI() {
         frame.getContentPane().removeAll();
         frame.setSize(width, height);
@@ -50,6 +63,12 @@ public class SceneLoaderGUI extends JPanel {
         this.add(choicePanel, BorderLayout.SOUTH);
     }
 
+    /**
+     * Paints the scene background, character sprite, and dialog text.
+     * Displays choice buttons if the current dialog has choices.
+     *
+     * @param g the {@link Graphics} object to paint the scene
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -78,6 +97,9 @@ public class SceneLoaderGUI extends JPanel {
         clicked = false;
     }
 
+    /**
+     * Displays the choice buttons when the current dialog has choices.
+     */
     private void showChoiceButtons() {
         choicePanel.removeAll();
 
@@ -92,10 +114,18 @@ public class SceneLoaderGUI extends JPanel {
         repaint();
     }
 
+    /**
+     * Hides the choice buttons when the current dialog does not have choices.
+     */
     private void hideChoiceButtons() {
         choicePanel.setVisible(false);
     }
 
+    /**
+     * Loads a new scene and updates the display.
+     *
+     * @param newScene the new {@link Scene} to load
+     */
     public void loadNewScene(Scene newScene) {
         this.scene = newScene;
         repaint();

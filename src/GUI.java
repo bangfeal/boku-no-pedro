@@ -5,15 +5,19 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 /**
- * MAIN MENU GUI WORKED ON BY @JEBUS. AFTER CLICKING PLAY ButtonLogic.Java calls in GameGUI.java WHICH HANDLES THE
- * MAIN PLAYING AREA FOR THE PLAYER (AND IT INTERECATS WITH THE REST OF THE CLASSES)
+ * Represents the main menu GUI of the game, which is displayed when the game starts.
+ * After clicking the Play button, the {@link ButtonLogic_D} class triggers the loading of the main game area
+ * through {@link SceneLoaderGUI}. This class handles the setup and layout of the main menu interface.
  */
-
 public class GUI {
     protected JFrame frame;
     private JLabel bottomCredits;
     protected Image backgroundImage;
 
+    /**
+     * Initializes the main menu GUI by setting up the frame, creating components,
+     * and laying them out. The window is made visible at the end.
+     */
     public GUI() {
         initializeFrame();
         createComponents();
@@ -21,11 +25,15 @@ public class GUI {
         frame.setVisible(true);
     }
 
+    /**
+     * Sets up the main frame of the application, including its title, close operation,
+     * size, and layout. Also sets the application icon.
+     */
     private void initializeFrame() {
         frame = new JFrame("Boku No Pedro!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1920, 1080);
-        frame.setResizable(false);          //Temporary until I figure out how to make shit work
+        frame.setResizable(false);          //Temporary until the layout is finalized
         frame.setLayout(new BorderLayout());
 
         // Set app icon
@@ -33,6 +41,10 @@ public class GUI {
         frame.setIconImage(image.getImage());
     }
 
+    /**
+     * Creates and initializes the components for the main menu, including the credits label
+     * and background image.
+     */
     private void createComponents() {
         bottomCredits = new JLabel("Creditos: Disenado y programado por Felix Arcaya y Roman Palchevskiy");
         bottomCredits.setHorizontalAlignment(SwingConstants.CENTER);
@@ -47,7 +59,11 @@ public class GUI {
         }
     }
 
-    // Create a custom panel to draw the background image
+    /**
+     * Creates a custom JPanel that draws the background image.
+     *
+     * @return a JPanel that paints the background image
+     */
     protected JPanel createBackgroundPanel() {
         return new JPanel() {
             @Override
@@ -60,6 +76,10 @@ public class GUI {
         };
     }
 
+    /**
+     * Lays out the components on the frame, including the background panel, credits,
+     * and buttons (Play, Quit).
+     */
     private void layoutComponents() {
         JPanel backgroundPanel = createBackgroundPanel();
         backgroundPanel.setLayout(new BorderLayout());
@@ -73,6 +93,11 @@ public class GUI {
         frame.repaint();
     }
 
+    /**
+     * Creates the panel containing the buttons (Play and Quit) for the main menu.
+     *
+     * @return a JPanel with the buttons arranged vertically
+     */
     protected JPanel createButtonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
@@ -92,5 +117,12 @@ public class GUI {
         quitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         return buttonPanel;
+    }
+
+    /**
+     * @return the JFrame for the main menu
+     */
+    public JFrame getGUIFrame() {
+        return frame;
     }
 }
