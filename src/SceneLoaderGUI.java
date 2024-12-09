@@ -6,6 +6,9 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * The graphical user interface (GUI) for loading and displaying scenes in the game.
+ */
 public class SceneLoaderGUI extends JPanel {
     private JFrame frame;
     private Scene scene;
@@ -16,6 +19,12 @@ public class SceneLoaderGUI extends JPanel {
     private final int height = width * 9 / 16;
     private boolean clicked = false;
 
+    /**
+     * Constructs a SceneLoaderGUI to display a given scene.
+     *
+     * @param frame The JFrame to display the GUI on.
+     * @param scene The scene to be displayed.
+     */
     public SceneLoaderGUI(JFrame frame, Scene scene) {
         this.frame = frame;
         this.scene = scene;
@@ -33,6 +42,9 @@ public class SceneLoaderGUI extends JPanel {
         });
     }
 
+    /**
+     * Initializes the GUI components for displaying the scene.
+     */
     private void initializeGUI() {
         frame.getContentPane().removeAll();
         frame.setSize(width, height);
@@ -50,6 +62,11 @@ public class SceneLoaderGUI extends JPanel {
         this.add(choicePanel, BorderLayout.SOUTH);
     }
 
+    /**
+     * Paints the current scene on the screen, including the background, dialog, and choices.
+     *
+     * @param g The Graphics object used to paint the scene.
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -78,6 +95,9 @@ public class SceneLoaderGUI extends JPanel {
         clicked = false;
     }
 
+    /**
+     * Displays the choice buttons when the dialog includes choices.
+     */
     private void showChoiceButtons() {
         choicePanel.removeAll();
 
@@ -92,10 +112,18 @@ public class SceneLoaderGUI extends JPanel {
         repaint();
     }
 
+    /**
+     * Hides the choice buttons when there are no choices in the dialog.
+     */
     private void hideChoiceButtons() {
         choicePanel.setVisible(false);
     }
 
+    /**
+     * Loads a new scene and updates the GUI to reflect the new scene.
+     *
+     * @param newScene The new Scene to be loaded.
+     */
     public void loadNewScene(Scene newScene) {
         this.scene = newScene;
         repaint();

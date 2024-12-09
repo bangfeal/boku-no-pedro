@@ -5,7 +5,6 @@ import java.io.*;
 
 public class Parser {
 
-
     private enum POSITIONS {
         CHARACTER(0), SPRITE(1), TEXT(2);
         private final int value;
@@ -14,7 +13,6 @@ public class Parser {
             this.value = value; }
         public int getValue() { return value; }
     }
-
 
     private File file;
     private BufferedReader reader;
