@@ -44,7 +44,7 @@ public class Parser {
 
             dialogs.add(new Dialog((String) innerArray.get(0),
                     (String) innerArray.get(1),
-                    (String) innerArray.get(3)
+                    (String) innerArray.get(2)
                     ));
         }
 
@@ -53,7 +53,7 @@ public class Parser {
         try {
             dialogs.add(new ChoiceDialog((String) innerArray.get(0),
                     (String) innerArray.get(1),
-                    (String) innerArray.get(3),
+                    (String) innerArray.get(2),
                     new Choice((HashMap) choices.get(0)),
                     new Choice((HashMap) choices.get(1)
                     )));

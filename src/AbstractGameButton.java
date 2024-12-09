@@ -11,7 +11,7 @@ public abstract class AbstractGameButton extends JButton {
         super(text);
         setFont(VisualInfo.buttonFont);
         setBackground(VisualInfo.buttonBackground);
-        setPreferredSize(new Dimension(180, 80));
+        setPreferredSize(new Dimension(360, 80));
         addActionListener(e -> onClick());
     }
 

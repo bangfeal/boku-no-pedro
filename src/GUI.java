@@ -77,7 +77,7 @@ public class GUI {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setOpaque(false); // Make the button panel transparent to show the background
-        buttonPanel.setPreferredSize(new Dimension(250, 720));
+        buttonPanel.setPreferredSize(new Dimension(500, 720));
 
         JButton playButton = ButtonLogic_D.playButton(frame);
         JButton quitButton = ButtonLogic_D.quitButton();

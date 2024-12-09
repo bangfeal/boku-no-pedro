@@ -24,7 +24,8 @@ public class SceneLoaderGUI extends JPanel {
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (!scene.getCurrentDialog().hasChoice()) {
+                if (!scene.getCurrentDialog().hasChoice() && !clicked) {
+                    scene.increment();
                     clicked = true;
                     repaint();
                 }
@@ -67,16 +68,14 @@ public class SceneLoaderGUI extends JPanel {
                     showChoiceButtons();
                 } else {
                     hideChoiceButtons();
-                    if (clicked) {
-                        scene.increment();
-                        clicked = false;
-                    }
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
+        clicked = false;
     }
 
     private void showChoiceButtons() {
