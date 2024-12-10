@@ -155,8 +155,9 @@ public class SceneLoaderGUI extends JPanel {
      * @param newScene The new Scene to be loaded.
      */
     public void loadNewScene(Scene newScene) {
-        // this.scene = newScene;
-        SceneLoaderGUI sceneLoaderGUI = SceneLoaderGUI.getInstance(this.frame, newScene);
-        repaint();
+        this.scene = newScene; // Update the current scene
+        revalidate();          // Refresh the layout
+        repaint();             // Repaint the component
     }
+
 }
