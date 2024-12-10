@@ -47,7 +47,7 @@ public class ButtonLogic_D {
          */
         @Override
         protected void onClick() {
-            SceneLoaderGUI gameGui = new SceneLoaderGUI(frame, new Scene(new File("Act1_scene1.json")));
+            SceneLoaderGUI gameGui = SceneLoaderGUI.getInstance(frame, new Scene(new File("Act1_scene1.json")));
             frame.add(gameGui);
             frame.setVisible(true);
         }

@@ -41,7 +41,7 @@ public class GUI {
      * Creates the components for the menu, including the background and credits label.
      */
     private void createComponents() {
-        bottomCredits = new JLabel("Creditos: Disenado y programado por Felix Arcaya y Roman Palchevskiy");
+        bottomCredits = new JLabel("Creditos: Diseñado y programado por Felix Arcaya y Roman Palchevskiy");
         bottomCredits.setHorizontalAlignment(SwingConstants.CENTER);
         bottomCredits.setForeground(Color.WHITE);
 

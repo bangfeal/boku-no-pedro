@@ -10,6 +10,9 @@ import java.io.IOException;
  * The graphical user interface (GUI) for loading and displaying scenes in the game.
  */
 public class SceneLoaderGUI extends JPanel {
+
+    private static volatile SceneLoaderGUI instance;
+
     private JFrame frame;
     private Scene scene;
     private JPanel choicePanel;
@@ -40,6 +43,21 @@ public class SceneLoaderGUI extends JPanel {
                 }
             }
         });
+    }
+
+
+    public static SceneLoaderGUI getInstance(JFrame frame, Scene scene) {
+        SceneLoaderGUI result = instance;
+
+        if (result != null) {
+            return result;
+        }
+        synchronized (SceneLoaderGUI.class) {
+            if (instance == null) {
+                instance = new SceneLoaderGUI(frame, scene);
+            }
+            return instance;
+        }
     }
 
     /**
