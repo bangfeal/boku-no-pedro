@@ -11,8 +11,7 @@ import java.io.*;
 public class Parser {
 
     private File file;
-    private BufferedReader reader;
-    private JSONObject mainObject;
+    private BufferedReader reader;    private JSONObject mainObject;
 
     /**
      * Constructs a new {@code Parser} object that parses the given JSON file.

@@ -1,35 +1,45 @@
 {
-  "background": "bg1.jpg",
+  "background": "src/images/backgrounds/gala.jpg",
   "dialog": {
       "text": [
           [
-            "Sanchez",
-            "sanchez_standing.png",
-            "Por siete votos... tienes el culo roto! [1]"
+            "Pedro Sanchez",
+            "src/images/sprites/PedroSanchez_arms.png",
+            "Que bueno verte aqui!"
           ],
           [
-            "Sanchez",
+            "Pedro Sanchez",
             "src/images/sprites/PedroSanchez.png",
-            "Esa nenita ta enterita [2]"
+            "Espero que mi discurso haya sido de tu agrado"
           ],
           [
-            "Sanchez",
-            "sanchez_standing.png",
-            "Y tiene tremendo [3]"
+            "Pedro Sanchez",
+            "src/images/sprites/PedroSanchez.png",
+            "Siempre es un placer compartir ideas con ciudadanos tan interesados como tú."
           ],
           [
-            "Epstein",
-            "src/images/sprites/PedroSanchez2.png",
-            "Jeffrey Epstein Didnt Kill Himself"
+            "Pedro Sanchez",
+            "src/images/sprites/PedroSanchez.png",
+            "* [PEDRO HACE UNA PAUSA LARGA Y TE MIRA EN LOS OJOS] *"
+          ],
+          [
+            "Pedro Sanchez",
+            "src/images/sprites/PedroSanchez.png",
+            "Pero cuéntame.."
+          ],
+          [
+          "Pedro Sanchez",
+          "src/images/sprites/PedroSanchez.png",
+          "¿Qué opinas?"
           ]
       ],
     "choice": [
       {
-        "text": "CHOICE SCENE 2",
+        "text": "El discurso fue increible",
         "scene": "Act1_scene2.json"
       },
       {
-        "text": "CHOICE SCENE 3",
+        "text": "No tengo tiempo para ti",
         "scene": "Act1_scene3.json"
       }
     ]
