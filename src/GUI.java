@@ -5,15 +5,16 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 /**
- * MAIN MENU GUI WORKED ON BY @JEBUS. AFTER CLICKING PLAY ButtonLogic.Java calls in GameGUI.java WHICH HANDLES THE
- * MAIN PLAYING AREA FOR THE PLAYER (AND IT INTERECATS WITH THE REST OF THE CLASSES)
+ * Main menu GUI class that sets up and displays the main menu for the game.
  */
-
 public class GUI {
     protected JFrame frame;
     private JLabel bottomCredits;
     protected Image backgroundImage;
 
+    /**
+     * Constructs the main menu GUI and initializes its components.
+     */
     public GUI() {
         initializeFrame();
         createComponents();
@@ -21,11 +22,14 @@ public class GUI {
         frame.setVisible(true);
     }
 
+    /**
+     * Initializes the main frame for the menu.
+     */
     private void initializeFrame() {
         frame = new JFrame("Boku No Pedro!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1920, 1080);
-        frame.setResizable(false);          //Temporary until I figure out how to make shit work
+        frame.setResizable(false);  // Temporary until resolution is fixed
         frame.setLayout(new BorderLayout());
 
         // Set app icon
@@ -33,8 +37,11 @@ public class GUI {
         frame.setIconImage(image.getImage());
     }
 
+    /**
+     * Creates the components for the menu, including the background and credits label.
+     */
     private void createComponents() {
-        bottomCredits = new JLabel("Creditos: Disenado y programado por Felix Arcaya y Roman Palchevskiy");
+        bottomCredits = new JLabel("Creditos: Diseñado y programado por Felix Arcaya y Roman Palchevskiy");
         bottomCredits.setHorizontalAlignment(SwingConstants.CENTER);
         bottomCredits.setForeground(Color.WHITE);
 
@@ -47,7 +54,11 @@ public class GUI {
         }
     }
 
-    // Create a custom panel to draw the background image
+    /**
+     * Creates a custom panel to display the background image.
+     *
+     * @return A JPanel displaying the background image.
+     */
     protected JPanel createBackgroundPanel() {
         return new JPanel() {
             @Override
@@ -60,6 +71,9 @@ public class GUI {
         };
     }
 
+    /**
+     * Lays out the components in the main menu, including the background and buttons.
+     */
     private void layoutComponents() {
         JPanel backgroundPanel = createBackgroundPanel();
         backgroundPanel.setLayout(new BorderLayout());
@@ -73,11 +87,16 @@ public class GUI {
         frame.repaint();
     }
 
+    /**
+     * Creates the panel containing the Play and Quit buttons.
+     *
+     * @return A JPanel containing the Play and Quit buttons.
+     */
     protected JPanel createButtonPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setOpaque(false); // Make the button panel transparent to show the background
-        buttonPanel.setPreferredSize(new Dimension(250, 720));
+        buttonPanel.setPreferredSize(new Dimension(500, 720));
 
         JButton playButton = ButtonLogic_D.playButton(frame);
         JButton quitButton = ButtonLogic_D.quitButton();

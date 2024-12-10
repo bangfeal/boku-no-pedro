@@ -5,6 +5,15 @@ import java.io.*;
 
 public class Parser {
 
+    private enum POSITIONS {
+        CHARACTER(0), SPRITE(1), TEXT(2);
+        private final int value;
+
+        POSITIONS(int value) {
+            this.value = value; }
+        public int getValue() { return value; }
+    }
+
     private File file;
     private BufferedReader reader;
     private JSONObject mainObject;
@@ -35,25 +44,25 @@ public class Parser {
 
         // using integers instead of constants or enum because these
         // seem to add more complexity and verbosity
-        // 0 = CHARACTER | 1 = SPRITE | 2 = CHOICE | 3 = TEXT
+        // 0 = CHARACTER | 1 = SPRITE | 2 = TEXT
 
         JSONArray innerArray;
 
         for (int i = 0; i < text.toArray().length - 1; i++) {
             innerArray = (JSONArray) text.get(i);
 
-            dialogs.add(new Dialog((String) innerArray.get(0),
-                    (String) innerArray.get(1),
-                    (String) innerArray.get(3)
+            dialogs.add(new Dialog((String) innerArray.get(POSITIONS.CHARACTER.getValue()),
+                    (String) innerArray.get(POSITIONS.SPRITE.getValue()),
+                    (String) innerArray.get(POSITIONS.TEXT.getValue())
                     ));
         }
 
         innerArray = (JSONArray) text.get(text.toArray().length - 1);
 
         try {
-            dialogs.add(new ChoiceDialog((String) innerArray.get(0),
-                    (String) innerArray.get(1),
-                    (String) innerArray.get(3),
+            dialogs.add(new ChoiceDialog((String) innerArray.get(POSITIONS.CHARACTER.getValue()),
+                    (String) innerArray.get(POSITIONS.SPRITE.getValue()),
+                    (String) innerArray.get(POSITIONS.TEXT.getValue()),
                     new Choice((HashMap) choices.get(0)),
                     new Choice((HashMap) choices.get(1)
                     )));
