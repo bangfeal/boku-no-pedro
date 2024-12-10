@@ -80,7 +80,7 @@ public class SceneLoaderGUI extends JPanel {
                 graphics.drawImage(ImageIO.read(scene.getBackground()), 0, 0, width, height, this);
                 graphics.drawImage(ImageIO.read(new File(scene.getCurrentDialog().getCurrentSprite())), 550, 100, 850, 1500, this);
 
-                graphics.drawImage(ImageIO.read(new File("text_box.png")), 450, 700, this);
+                graphics.drawImage(ImageIO.read(new File("src/images/text_box.png")), 450, 700, this);
                 graphics.drawString(scene.getCurrentDialog().getText(), 545, 800);
 
                 if (scene.getCurrentDialog().hasChoice()) {
