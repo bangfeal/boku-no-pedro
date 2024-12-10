@@ -13,6 +13,8 @@ public class SceneLoaderGUI extends JPanel {
 
     private static volatile SceneLoaderGUI instance;
 
+    private static MouseAdapter ma;
+
     private JFrame frame;
     private Scene scene;
     private JPanel choicePanel;
@@ -32,24 +34,33 @@ public class SceneLoaderGUI extends JPanel {
         this.frame = frame;
         this.scene = scene;
         initializeGUI();
+        buildMA();
+        this.addMouseListener(ma);
+    }
 
-        this.addMouseListener(new MouseAdapter() {
+
+    private void buildMA() {
+        ma = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (!scene.getCurrentDialog().hasChoice() && !clicked) {
+                    System.out.println("SceneGUI click");
+
                     scene.increment();
                     clicked = true;
                     repaint();
                 }
             }
-        });
+        };
     }
-
 
     public static SceneLoaderGUI getInstance(JFrame frame, Scene scene) {
         SceneLoaderGUI result = instance;
 
         if (result != null) {
+            result.frame = frame;
+            result.scene = scene;
+
             return result;
         }
         synchronized (SceneLoaderGUI.class) {
@@ -126,8 +137,9 @@ public class SceneLoaderGUI extends JPanel {
         choicePanel.add(choice0);
         choicePanel.add(choice1);
         choicePanel.setVisible(true);
+        choicePanel.setOpaque(true);
         revalidate();
-        repaint();
+        // repaint();
     }
 
     /**
@@ -143,7 +155,8 @@ public class SceneLoaderGUI extends JPanel {
      * @param newScene The new Scene to be loaded.
      */
     public void loadNewScene(Scene newScene) {
-        this.scene = newScene;
+        // this.scene = newScene;
+        SceneLoaderGUI sceneLoaderGUI = SceneLoaderGUI.getInstance(this.frame, newScene);
         repaint();
     }
 }
