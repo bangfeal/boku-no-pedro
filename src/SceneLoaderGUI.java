@@ -20,7 +20,7 @@ public class SceneLoaderGUI extends JPanel {
     private JPanel choicePanel;
 
     // Uses a default 16:9 aspect ratio
-    private final int width = 1920;
+    private final int width = 1800;
     private final int height = width * 9 / 16;
     private boolean clicked = false;
 
@@ -105,10 +105,13 @@ public class SceneLoaderGUI extends JPanel {
         if (!scene.isOver()) {
             try {
                 graphics.drawImage(ImageIO.read(scene.getBackground()), 0, 0, width, height, this);
-                graphics.drawImage(ImageIO.read(new File(scene.getCurrentDialog().getCurrentSprite())), 550, 100, 850, 1500, this);
+                graphics.drawImage(ImageIO.read(new File(scene.getCurrentDialog().getCurrentSprite())), 500, 100, 850, 1500, this);
 
-                graphics.drawImage(ImageIO.read(new File("text_box.png")), 450, 700, this);
-                graphics.drawString(scene.getCurrentDialog().getText(), 545, 800);
+                graphics.drawImage(ImageIO.read(new File("text_box.png")), 400, 700, this);
+                graphics.drawString(scene.getCurrentDialog().getText(), 480, 800);
+
+                g.setFont(new Font("Cantarell", Font.PLAIN, 18));
+                graphics.drawString(scene.getCurrentDialog().getCharacter(), 473, 738);
 
                 if (scene.getCurrentDialog().hasChoice()) {
                     showChoiceButtons();

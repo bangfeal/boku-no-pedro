@@ -12,6 +12,9 @@ public class GUI {
     private JLabel bottomCredits;
     protected Image backgroundImage;
 
+    private final int width = 1800;
+    private final int height = width * 9 / 16;
+
     /**
      * Constructs the main menu GUI and initializes its components.
      */
@@ -28,7 +31,7 @@ public class GUI {
     private void initializeFrame() {
         frame = new JFrame("Boku No Pedro!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1920, 1080);
+        frame.setSize(width, height);
         frame.setResizable(false);  // Temporary until resolution is fixed
         frame.setLayout(new BorderLayout());
 

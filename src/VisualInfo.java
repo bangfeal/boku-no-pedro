@@ -8,5 +8,5 @@ public class VisualInfo {
     //FONTS
     public static final Font menuFont = new Font("Serif", Font.BOLD, 90);
     public static final Font creditFont = new Font("Serif", Font.PLAIN, 14);
-    public static final Font buttonFont = new Font("Serif", Font.BOLD, 40);
+    public static final Font buttonFont = new Font("Serif", Font.BOLD, 20);
 }
