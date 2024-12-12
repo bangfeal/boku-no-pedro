@@ -1,4 +1,4 @@
-![BOKU NO PEDRO](https://github.com/bangfeal/boku-no-pedro/blob/main/Boku_no_Pedro!.png)
+![BOKU NO PEDRO](https://github.com/bangfeal/boku-no-pedro/blob/main/resources/Boku_no_Pedro!.png)
 
 Boku no Pedro es un juego estilo novela visual donde el jugador esta dentro 
 de un triangulo amoroso entre Pedro Sanchez y Mariano Rajoy con decisiones
@@ -65,5 +65,5 @@ muestra una decisión por pantalla y envía a una escena u otra.
 
 
 ## Estructura (actual) del proyecto
-![DIAGRAMA UML](https://github.com/bangfeal/boku-no-pedro/blob/main/UML_Diagram.png)
+![DIAGRAMA UML](https://github.com/bangfeal/boku-no-pedro/blob/main/resources/UML_Diagram.png)
 
