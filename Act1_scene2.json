@@ -1,36 +1,36 @@
 {
-  "background": "src/images/ChoiceBackground.png",
+  "background": "src/images/backgrounds/gala.jpg",
   "dialog": {
       "text": [
           [
-            "Sanchez",
-            "sanchez_standing.png",
-            "TEXTO [1]"
+            "Mariano Rajoy",
+            "src/images/sprites/MarianoRajoy.png",
+            "Parece que tienes otras prioridades esta noche."
           ],
           [
-            "Sanchez",
-            "src/images/sprites/PedroSanchez.png",
-            "TEXTO  [2]"
+            "Mariano Rajoy",
+            "src/images/sprites/MarianoRajoy.png",
+            "Espero que encuentres lo que buscas."
           ],
           [
-            "Sanchez",
-            "sanchez_standing.png",
-            "TEXTO  [3]"
+            "Mariano Rajoy",
+            "src/images/sprites/MarianoRajoy.png",
+            "Tal vez podamos hablar en otro momento... y en un sitio mejor"
           ],
           [
-            "Epstein",
-            "src/images/sprites/PedroSanchez2.png",
-            "Jeffrey Epstein Didnt Kill Himself"
+            "Mariano Rajoy",
+            "src/images/sprites/MarianoRajoy.png",
+            "* MARIANO ESPERA TU RESPUESTA CON ANSIEDAD *"
           ]
       ],
     "choice": [
       {
-        "text": "CHOICE SCENE 2",
-        "scene": "Act1_scene2.json"
+        "text": "Bromear sobre su rivalidad con Pedro Sánchez.",
+        "scene": "Act1_scene4.json"
       },
       {
-        "text": "CHOICE SCENE 3",
-        "scene": "Act1_scene3.json"
+        "text": "Invitarlo a una cena",
+        "scene": "Act1_scene5.json"
       }
     ]
   }
